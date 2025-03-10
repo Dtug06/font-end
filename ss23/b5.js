@@ -24,4 +24,4 @@ if (count <= 0) {
     console.log("Không có ký tự số");
 } else {
     console.log("Tổng các ký tự số" + count);
-}
+}//

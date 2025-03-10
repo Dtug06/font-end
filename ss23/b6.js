@@ -6,3 +6,4 @@ for (let i = 0; i < mixedArray.length; i++) {
     }
 }
 console.log(mixedArray);
+//
