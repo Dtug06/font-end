@@ -1,0 +1,190 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Example</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h2 style="text-align: center;">Table Example</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="stt"></td>
+                <td class="name"></td>
+                <td class="age"></td>
+                <td class="address"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        const employees = [
+            {
+                id: 1,
+                name: Văn A,
+                age: 19,
+                address: 'District',
+            },
+            {
+                id: 1,
+                name: Văn B,
+                age: 19,
+                address: 'District',
+            },
+            {
+                id: 1,
+                name: Văn A,
+                age: 19,
+                address: 'District',
+            },
+            {
+                id: 1,
+                name: Văn A,
+                age: 19,
+                address: 'District',
+            },
+            {
+                id: 1,
+                name: Văn A,
+                age: 19,
+                address: 'District',
+            }
+        ];
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Example</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h2>Table Example</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Dữ liệu sẽ được chèn ở đây bằng JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        // Danh sách employees
+        const employees = [
+            {
+                id: 1,
+                name: "Văn A",
+                age: 19,
+                address: "District 1"
+            },
+            {
+                id: 2,
+                name: "Văn B",
+                age: 22,
+                address: "District 2"
+            },
+            {
+                id: 3,
+                name: "Văn C",
+                age: 25,
+                address: "District 3"
+            },
+            {
+                id: 4,
+                name: "Văn D",
+                age: 28,
+                address: "District 4"
+            },
+            {
+                id: 5,
+                name: "Văn E",
+                age: 31,
+                address: "District 5"
+            }
+        ];
+
+        // Truy xuất phần tử tbody
+        const tableBody = document.getElementById("table-body");
+
+        // Duyệt qua danh sách employees và tạo các hàng trong bảng
+        employees.forEach((employee, index) => {
+            // Tạo một hàng (row)
+            const row = document.createElement("tr");
+
+            // Tạo các cột (cell)
+            const sttCell = document.createElement("td");
+            sttCell.textContent = index + 1; // STT tự động tăng
+
+            const nameCell = document.createElement("td");
+            nameCell.textContent = employee.name;
+
+            const ageCell = document.createElement("td");
+            ageCell.textContent = employee.age;
+
+            const addressCell = document.createElement("td");
+            addressCell.textContent = employee.address;
+
+            // Gắn các cột vào hàng
+            row.appendChild(sttCell);
+            row.appendChild(nameCell);
+            row.appendChild(ageCell);
+            row.appendChild(addressCell);
+
+            // Gắn hàng vào bảng
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+
+</html>

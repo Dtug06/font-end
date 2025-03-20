@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide and Show Text</title>
+</head>
+
+<body>
+    <h1 id="text">This is a text</h1>
+    <button id="hideButton">Hide text</button>
+    <button id="showButton">Show text</button>
+
+    <script>
+        const textElement = document.getElementById('text');
+        const hideButton = document.getElementById('hideButton');
+        const showButton = document.getElementById('showButton');
+
+        hideButton.addEventListener('click', () => {
+            textElement.style.display = 'none';
+        });
+
+        showButton.addEventListener('click', () => {
+            textElement.style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>

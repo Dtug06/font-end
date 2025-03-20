@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+    <style>
+        .boss {
+            display: flex;
+        }
+
+        .colorDiv {
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            /* Đặt chữ trắng để dễ nhìn */
+            cursor: pointer;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .purple {
+            background-color: purple;
+        }
+
+        body {
+            background-color: white;
+
+            margin: 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <p>Change background-color</p>
+    <span>Mouse click</span>
+    <div class="boss">
+        <div class="colorDiv green">green</div>
+        <div class="colorDiv red">red</div>
+        <div class="colorDiv purple">purple</div>
+    </div>
+
+    <script>
+        const colorDivs = document.querySelectorAll('.colorDiv');
+        const body = document.body;
+        colorDivs.forEach(div => {
+            div.addEventListener('click', () => {
+                const bgColor = getComputedStyle(div).backgroundColor;
+                body.style.backgroundColor = bgColor;
+            });
+        });
+    </script>
+</body>
+
+</html>

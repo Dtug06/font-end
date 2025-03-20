@@ -1,0 +1,67 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .item {
+        color: black;
+    }
+
+    header {
+        background-color: white;
+    }
+</style>
+
+<body>
+    <h1 class="item">Toggle Dark/Light Mode</h1>
+    <p class="item">Click the button to toggle between dark and light mode for this page</p>
+    <button class="item nut">Toggle dark mode</button>
+    <script>
+        let colorText = document.getElementsByClassName('item');
+        let buttonAct = document.getElementsByClassName('nut');
+        buttonAct.addEventListener.('click', () => { colorText})
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Dark/Light Mode</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="item">Toggle Dark/Light Mode</h1>
+    <p class="item">Click the button to toggle between dark and light mode for this page</p>
+    <button class="nut">Toggle dark mode</button>
+
+    <script>
+        const buttonAct = document.querySelector('.nut');
+        const body = document.body;
+        buttonAct.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+
+</html>
