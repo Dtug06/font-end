@@ -120,7 +120,7 @@
     </table>
 
     <script>
-        // Danh sách employees
+
         const employees = [
             {
                 id: 1,
@@ -154,15 +154,15 @@
             }
         ];
 
-        // Truy xuất phần tử tbody
+
         const tableBody = document.getElementById("table-body");
 
-        // Duyệt qua danh sách employees và tạo các hàng trong bảng
+
         employees.forEach((employee, index) => {
-            // Tạo một hàng (row)
+
             const row = document.createElement("tr");
 
-            // Tạo các cột (cell)
+
             const sttCell = document.createElement("td");
             sttCell.textContent = index + 1; // STT tự động tăng
 
@@ -175,13 +175,12 @@
             const addressCell = document.createElement("td");
             addressCell.textContent = employee.address;
 
-            // Gắn các cột vào hàng
             row.appendChild(sttCell);
             row.appendChild(nameCell);
             row.appendChild(ageCell);
             row.appendChild(addressCell);
 
-            // Gắn hàng vào bảng
+
             tableBody.appendChild(row);
         });
     </script>
