@@ -1,0 +1,76 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p {
+        display: none;
+        color: red;
+    }
+</style>
+
+<body>
+    <input type="text" id="inputBox" placeholder="abc@gmail.com">
+    <p>Email không hợp lệ</p>
+    <button>Check</button>
+    <script>
+        let inputBox = document.getElementById('inputBox').value;
+        let page = document.getElementsByTagName('p')[0];
+        let buttonCheck = document.getElementsByTagName('button')[0];
+        buttonCheck.addEventListener('click',=> {
+            if(!inputBox.includes("@gmail.com")){
+            page.style.display = "block";
+        }else {
+            page.style.display = "block";
+            page.textContent = "Email hợp lệ";
+        }
+        });
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="inputBox" placeholder="abc@gmail.com">
+    <p>Email không hợp lệ</p>
+    <button>Check</button>
+    <script>
+        const inputBox = document.getElementById('inputBox');
+        const page = document.getElementsByTagName('p')[0];
+        const buttonCheck = document.getElementsByTagName('button')[0];
+
+        buttonCheck.addEventListener('click', () => {
+            const email = inputBox.value.trim();
+
+            if (email.includes('@gmail') && (email.endsWith('.com') || email.endsWith('.vn'))) {
+                page.style.display = "block";
+                page.textContent = "Email hợp lệ";
+                page.style.color = "green";
+            } else {
+                page.style.display = "block";
+                page.textContent = "Email không hợp lệ";
+                page.style.color = "red";
+            }
+        });
+    </script>
+</body>
+
+</html>

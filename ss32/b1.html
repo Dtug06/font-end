@@ -1,0 +1,105 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bodyBackGround {
+            display: flex;
+
+        }
+
+        .item {
+            width: 400px;
+            height: 200px;
+            border: 2px solid black;
+            margin-left: 20px;
+            padding: 20px;
+        }
+
+        .item:nth-child(2) {
+            background-color: #acf778;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bodyBackGround">
+        <div class="item div1">
+            <button class="button1">Đổi màu nền</button>
+        </div>
+        <div class="item div2">
+            <button class="button2">Đổi màu nền</button>
+        </div>
+    </div>
+    <script>
+        let page1 = document.getElementsByClassName('div1');
+        let page2 = document.getElementsByClassName('div2');
+        document.getElementsByClassName('button1').getElementById('click', () => {
+page1.document.style.backgroundcolor=
+        });
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bodyBackGround {
+            display: flex;
+        }
+
+        .item {
+            width: 400px;
+            height: 200px;
+            border: 2px solid black;
+            margin-left: 20px;
+            padding: 20px;
+        }
+
+        .item:nth-child(2) {
+            background-color: #acf778;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bodyBackGround">
+        <div class="item div1">
+            <button class="button1">Đổi màu nền</button>
+        </div>
+        <div class="item div2">
+            <button class="button2">Đổi màu nền</button>
+        </div>
+    </div>
+    <script>
+        // Hàm tạo màu ngẫu nhiên
+        function getRandomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        const button1 = document.querySelector('.button1');
+        const div1 = document.querySelector('.div1');
+        button1.addEventListener('click', () => {
+            div1.style.backgroundColor = getRandomColor();
+        });
+        const button2 = document.querySelector('.button2');
+        const div2 = document.querySelector('.div2');
+        button2.addEventListener('click', () => {
+            div2.style.backgroundColor = getRandomColor();
+        });
+    </script>
+</body>
+
+</html>

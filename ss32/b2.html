@@ -1,0 +1,56 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    button {
+        margin-bottom: 20px;
+    }
+</style>
+
+<body>
+    <button>Click me</button>
+    <p>Số lần bấm :</p>
+    <script>let n = 0;
+        let clickMe = document.getElementsByName('button');
+        let page = document.getElementsByName('p');
+        clickMe.addEventListener('click', () => {
+            page.textContent = "Số lần bấm:${n}";
+        });
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    button {
+        margin-bottom: 20px;
+    }
+</style>
+
+<body>
+    <button>Click me</button>
+    <p>Số lần bấm : 0</p>
+    <script>
+        let n = 0;
+        let clickMe = document.getElementsByTagName('button')[0];
+        let page = document.getElementsByTagName('p')[0];
+        clickMe.addEventListener('click', () => {
+            n++;
+            page.textContent = `Số lần bấm: ${n}`;
+        });
+    </script>
+</body>
+
+</html>

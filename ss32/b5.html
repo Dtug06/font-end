@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List K24_PTIT</title>
+    <style>
+        .bodyForm {
+            width: 400px;
+            height: auto;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form {
+            border-radius: 4px;
+            background-color: white;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .headerForm {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        input {
+            flex: 8;
+            border: 1px solid black;
+            border-radius: 3px;
+            padding: 8px;
+            margin-right: 10px;
+            width: 70%;
+        }
+
+        .buttonAdd {
+            flex: 2;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            border-radius: 3px;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .task span {
+            flex: 8;
+        }
+
+        .delete {
+            flex: 2;
+            background-color: #dc3545;
+            border: none;
+            color: white;
+            border-radius: 3px;
+            padding: 6px;
+            cursor: pointer;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bodyForm">
+        <h2>To-Do List K24_PTIT</h2>
+        <div class="form">
+            <div class="headerForm">
+                <input type="text" id="taskInput" placeholder="Enter Quest">
+                <button class="buttonAdd" id="addButton">Add</button>
+            </div>
+            <div id="taskList">
+                <!-- Tasks sẽ được thêm vào đây -->
+            </div>
+        </div>
+    </div>
+    <script>
+        const taskInput = document.getElementById("taskInput");
+        const addButton = document.getElementById("addButton");
+        const taskList = document.getElementById("taskList");
+        addButton.addEventListener("click", () => {
+            const taskValue = taskInput.value.trim();
+            if (taskValue === "") {
+                alert("Please enter a task!");
+                return;
+            }
+            const taskDiv = document.createElement("div");
+            taskDiv.classList.add("task");
+            const taskSpan = document.createElement("span");
+            taskSpan.textContent = taskValue;
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "X";
+            deleteButton.classList.add("delete");
+            deleteButton.addEventListener("click", () => {
+                taskList.removeChild(taskDiv);
+            });
+            taskDiv.appendChild(taskSpan);
+            taskDiv.appendChild(deleteButton);
+            taskList.appendChild(taskDiv);
+            taskInput.value = "";
+        });
+    </script>
+</body>
+
+</html>
