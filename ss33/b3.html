@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Filter</title>
+    <style>
+        button {
+            border-radius: 3px;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <select name="options" id="dropdown">
+            <option value="Default">--Select menu--</option>
+            <option value="Food">Food</option>
+            <option value="Drinks">Drinks</option>
+            <option value="Tools">Tools</option>
+        </select>
+        <button>Filter</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        let menu = [
+            { name: 'Rau sạch', type: 'Food' },
+            { name: 'Thịt lợn', type: 'Food' },
+            { name: 'Cocacola', type: 'Drinks' },
+            { name: 'Lemon tea', type: 'Drinks' },
+            { name: 'Cờ Lê', type: 'Tools' },
+            { name: 'Tua vít', type: 'Tools' },
+        ];
+        const dropdown = document.getElementById('dropdown');
+        const button = document.querySelector('button');
+        const resultDiv = document.getElementById('result');
+        button.addEventListener('click', () => {
+            const selectedValue = dropdown.value;
+            if (selectedValue === "Default") {
+                resultDiv.innerHTML = menu.map(item => ` <li>${item.name} - danh mục ${item.type}</li>`)
+                    .join('');
+                return;
+            }
+            const filteredMenu = menu.filter(item => item.type === selectedValue);
+            if (filteredMenu.length > 0) {
+                resultDiv.innerHTML = filteredMenu
+                    .map(item => ` <li>${item.name} - danh mục ${item.type}</li>`)
+                    .join('');
+            } else {
+                resultDiv.textContent = menu.map(item => ` <li>${item.name} - danh mục ${item.type}</li>`)
+                    .join('');;
+            }
+        });
+    </script>
+</body>
+
+</html>

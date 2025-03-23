@@ -1,0 +1,36 @@
+<!-- endend -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <textarea name="check" id="kiemTra" placeholder="Enter somethin'"></textarea>
+        <span id="charCount">0 Ký tự</span>
+        <button id="checkButton">Check</button>
+    </div>
+    <script>
+        const textArea = document.getElementById('kiemTra');
+        const span = document.getElementById('charCount');
+        const button = document.getElementById('checkButton');
+
+        button.addEventListener('click', () => {
+            const textValue = textArea.value; // Lấy giá trị từ textarea
+            span.textContent = `${textValue.length} Ký tự`; // Hiển thị số ký tự
+        });
+    </script>
+</body>
+
+</html>

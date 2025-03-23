@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            border: 1px solid black;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            border-radius: 3px;
+            position: relative;
+        }
+
+        i {
+            position: absolute;
+            top: 10px;
+            left: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="password" placeholder="Enter password">
+    <i class="fa-solid fa-eye"></i>
+    <!-- <i class="fa-solid fa-eye-slash"></i> -->
+    <script>
+        const inputBox = document.querySelector('input');
+        const eyeIcon = document.querySelector('i');
+
+        eyeIcon.addEventListener('click', () => {
+            if (eyeIcon.classList.contains('fa-eye')) {
+                inputBox.setAttribute('type', 'password');
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                inputBox.setAttribute('type', 'text');
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
