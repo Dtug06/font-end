@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+
+        div {
+            width: 300px;
+            background-color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 20px;
+            padding-top: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        input {
+            margin-top: 5px;
+            padding: 8px;
+            width: calc(100% - 16px);
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>Register</h2>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email address">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password">
+        <label for="Rpassword">Confirm Password</label>
+        <input type="password" id="Rpassword" placeholder="Enter your confirm password">
+        <button onclick="register()">Register</button>
+    </div>
+    <script>
+        function register() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('Rpassword').value;
+            if (!email) {
+                alert('Email cannot be empty.');
+                return;
+            }
+            if (!password) {
+                alert('Password cannot be empty.');
+                return;
+            }
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+            if (localStorage.getItem(email)) {
+                alert('Email is already registered.');
+                return;
+            }
+            const user = { email, password };
+            localStorage.setItem(email, JSON.stringify(user));
+            alert('Registration successful!');
+        }
+    </script>
+</body>
+
+</html>

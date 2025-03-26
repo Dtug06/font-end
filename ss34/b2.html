@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        div {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .headerForm {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .headerForm input,
+        .headerForm select,
+        .headerForm button {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .headerForm button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .bodyForm {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .task-info strong {
+            margin-right: 5px;
+        }
+
+        .task-actions button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .edit-btn {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>Task Management</h2>
+        <div class="headerForm">
+            <input type="text" id="content" placeholder="Content">
+            <input type="date" id="dueDate">
+            <select id="status">
+                <option value="pending">Pending</option>
+                <option value="solving">Solving</option>
+                <option value="completed">Completed</option>
+            </select>
+            <input type="text" id="username" placeholder="Username">
+            <button id="submitBtn">Add Task</button>
+        </div>
+        <div class="bodyForm" id="taskList">
+            <!-- Tasks will appear here -->
+        </div>
+    </div>
+    <script>
+        let arrToDoList = [];
+        let editTaskId = null;
+        function addToDoList() {
+            const content = document.getElementById('content').value.trim();
+            const dueDate = document.getElementById('dueDate').value;
+            const status = document.getElementById('status').value;
+            const username = document.getElementById('username').value.trim();
+
+            if (!content || !dueDate || !username) {
+                alert("Please fill in all fields!");
+                return;
+            }
+
+            if (editTaskId === null) {
+                const newJob = {
+                    id: Date.now(),
+                    content,
+                    dueDate,
+                    status,
+                    username
+                };
+                arrToDoList.push(newJob);
+            } else {
+                const task = arrToDoList.find(t => t.id === editTaskId);
+                task.content = content;
+                task.dueDate = dueDate;
+                task.status = status;
+                task.username = username;
+                editTaskId = null;
+                document.getElementById("submitBtn").textContent = "Add Task";
+            }
+
+            renderTasks();
+            clearInputs();
+        }
+        function renderTasks() {
+            const taskList = document.getElementById("taskList");
+            taskList.innerHTML = "";
+
+            arrToDoList.forEach(task => {
+                const taskDiv = document.createElement("div");
+                taskDiv.className = "task-item";
+
+                taskDiv.innerHTML = `
+                    <div class="task-info">
+                        <strong>${task.content}</strong> | ${task.dueDate} | ${task.status} | Assigned to: ${task.username}
+                    </div>
+                    <div class="task-actions">
+                        <button class="edit-btn" onclick="editTask(${task.id})">Edit</button>
+                        <button class="delete-btn" onclick="deleteTask(${task.id})">Delete</button>
+                    </div>
+                `;
+
+                taskList.appendChild(taskDiv);
+            });
+        }
+        function clearInputs() {
+            document.getElementById('content').value = '';
+            document.getElementById('dueDate').value = '';
+            document.getElementById('status').value = 'pending';
+            document.getElementById('username').value = '';
+        }
+
+        // Hàm chỉnh sửa công việc
+        function editTask(id) {
+            const task = arrToDoList.find(t => t.id === id);
+
+            if (task) {
+                document.getElementById('content').value = task.content;
+                document.getElementById('dueDate').value = task.dueDate;
+                document.getElementById('status').value = task.status;
+                document.getElementById('username').value = task.username;
+
+                editTaskId = id;
+                document.getElementById("submitBtn").textContent = "Update Task";
+            }
+        }
+
+        // Hàm xóa công việc
+        function deleteTask(id) {
+            arrToDoList = arrToDoList.filter(task => task.id !== id);
+            renderTasks();
+        }
+        document.getElementById('submitBtn').addEventListener('click', addToDoList);
+    </script>
+</body>
+
+</html>
